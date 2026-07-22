@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/mac/Documents/Portfolio/Backend/C#/DatingApp/API/API.csproj": {}
+    "/Users/mac/Documents/Portfolio/Backend/CSharp/DatingApp/API/API.csproj": {}
   },
   "projects": {
-    "/Users/mac/Documents/Portfolio/Backend/C#/DatingApp/API/API.csproj": {
+    "/Users/mac/Documents/Portfolio/Backend/CSharp/DatingApp/API/API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/mac/Documents/Portfolio/Backend/C#/DatingApp/API/API.csproj",
+        "projectUniqueName": "/Users/mac/Documents/Portfolio/Backend/CSharp/DatingApp/API/API.csproj",
         "projectName": "API",
-        "projectPath": "/Users/mac/Documents/Portfolio/Backend/C#/DatingApp/API/API.csproj",
+        "projectPath": "/Users/mac/Documents/Portfolio/Backend/CSharp/DatingApp/API/API.csproj",
         "packagesPath": "/Users/mac/.nuget/packages/",
-        "outputPath": "/Users/mac/Documents/Portfolio/Backend/C#/DatingApp/API/obj/",
+        "outputPath": "/Users/mac/Documents/Portfolio/Backend/CSharp/DatingApp/API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/mac/.nuget/NuGet/NuGet.Config"
@@ -46,7 +46,21 @@
           "dependencies": {
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
-              "version": "[10.0.0, )"
+              "version": "[10.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[10.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[10.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[10.0.10, )"
             }
           },
           "imports": [

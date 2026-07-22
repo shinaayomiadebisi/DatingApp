@@ -484,3 +484,7 @@ $RECYCLE.BIN/
 *.swp
 
 appsettings.json
+
+.angular
+
+.vscode
