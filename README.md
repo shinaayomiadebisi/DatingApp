@@ -43,6 +43,14 @@ ng analytics disable --global
 
 ng serve
 
+dotnet ef migrations add UserPasswordAdded
+dotnet ef database update
+
+<!-- To delete database -->
+
+dotnet ef database drop
+dotnet ef database update
+
 Tutorial Link: https://www.youtube.com/watch?v=3IQBMnijm6Y&list=PLaR3RrvBxlc21kp7BmrBqDQ7xSZjx3p_-
 
 https://github.com/trycatchlearn
