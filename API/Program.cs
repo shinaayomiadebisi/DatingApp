@@ -1,24 +1,26 @@
+using System.Text;
 using API.Data;
+using API.Extensions;
 using API.Interfaces;
 using API.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
+var _config = builder.Configuration;
 
 // Add services to the container.
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+services.AddOpenApi();
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = _config.GetConnectionString("DefaultConnection");
 
-builder.Services.AddScoped<ITokenService, TokenService>();
-builder.Services.AddDbContext<DataContext>(options =>
-{
-    options.UseSqlite(connectionString);
-});
-
-builder.Services.AddControllers();
-builder.Services.AddCors();
+services.AddApplicationServices(_config);
+services.AddControllers();
+services.AddCors();
+services.AddIdentityServices(_config);
 
 var app = builder.Build();
 
@@ -34,6 +36,7 @@ app.UseHttpsRedirection();
 
 app.UseCors(policy => policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200"));
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
