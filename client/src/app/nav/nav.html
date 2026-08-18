@@ -20,9 +20,9 @@
     }
 
     @if (loggedIn) {
-      <div class="dropdown">
-        <a class="dropdown-toggle text-light"> Welcome user </a>
-        <div class="dropdown-menu">
+      <div class="dropdown" dropdown>
+        <a class="dropdown-toggle text-light" dropdownToggle> Welcome user </a>
+        <div class="dropdown-menu mt-3" *dropdownMenu>
           <a class="dropdown-item">Edit profile</a>
           <a class="dropdown-item" (click)="logout()">Logout</a>
         </div>
