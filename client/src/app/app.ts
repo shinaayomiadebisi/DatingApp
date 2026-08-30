@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Nav } from './nav/nav';
+import { User } from './_models/user';
+import { AccountService } from './_services/account.service';
 
 @Component({
   selector: 'app-root',
@@ -22,6 +24,7 @@ export class App implements OnInit {
   constructor(
     private http: HttpClient,
     // @Inject(PLATFORM_ID) private platformId: Object, // Client side configuration added here
+    private accountService: AccountService,
   ) {
     // this.isBrowser = isPlatformBrowser(this.platformId);
   }
@@ -29,7 +32,13 @@ export class App implements OnInit {
     // Client side config condition
     if (this.isBrowser) {
       this.getUsers();
+      this.setCurrentUser();
     }
+  }
+
+  setCurrentUser() {
+    const user: User = JSON.parse(localStorage.getItem('user')!);
+    this.accountService.setCurrentUser(user);
   }
 
   getUsers() {
