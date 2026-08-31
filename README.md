@@ -40,6 +40,7 @@ ng new client --strict false
 ng analytics disable --global
 
 ng generate component nav --skip-tests
+ng generate c home --skip-tests
 
 <!-- To start Angular server -->
 
