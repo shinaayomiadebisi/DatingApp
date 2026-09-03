@@ -1,9 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './register.html',
   styleUrl: './register.css',
 })
-export class Register {}
+export class Register implements OnInit {
+  model: any = {};
+
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  register() {
+    console.log(this.model);
+  }
+
+  cancel() {
+    console.log('cancelled');
+  }
+}
