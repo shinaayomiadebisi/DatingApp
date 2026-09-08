@@ -5,10 +5,11 @@ import { RouterOutlet } from '@angular/router';
 import { Nav } from './nav/nav';
 import { User } from './_models/user';
 import { AccountService } from './_services/account.service';
+import { Home } from './home/home';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Nav],
+  imports: [RouterOutlet, Nav, Home],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
