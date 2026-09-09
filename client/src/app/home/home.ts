@@ -3,7 +3,7 @@ import { Register } from '../register/register';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
+  // standalone: true,
   imports: [Register],
   templateUrl: './home.html',
   styleUrl: './home.css',
