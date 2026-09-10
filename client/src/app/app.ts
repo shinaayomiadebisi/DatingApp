@@ -42,15 +42,15 @@ export class App implements OnInit {
     this.accountService.setCurrentUser(user);
   }
 
-  getUsers() {
-    this.http.get('http://localhost:5000/api/users').subscribe({
-      next: (response: any) => {
-        console.log('response', response);
-        this.users = response;
-      },
-      error: (error) => {
-        console.error(error);
-      },
-    });
-  }
+  // getUsers() {
+  //   this.http.get('http://localhost:5000/api/users').subscribe({
+  //     next: (response: any) => {
+  //       console.log('response', response);
+  //       this.users = response;
+  //     },
+  //     error: (error) => {
+  //       console.error(error);
+  //     },
+  //   });
+  // }
 }
