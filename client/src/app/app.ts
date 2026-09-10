@@ -32,7 +32,7 @@ export class App implements OnInit {
   ngOnInit() {
     // Client side config condition
     if (this.isBrowser) {
-      this.getUsers();
+      // this.getUsers();
       this.setCurrentUser();
     }
   }
