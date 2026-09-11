@@ -23,7 +23,7 @@ export class App implements OnInit {
   // isBrowser: boolean;
 
   constructor(
-    private http: HttpClient,
+    // private http: HttpClient,
     // @Inject(PLATFORM_ID) private platformId: Object, // Client side configuration added here
     private accountService: AccountService,
   ) {
