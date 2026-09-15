@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './register.css',
 })
 export class Register implements OnInit {
+  @Input() userFromHomeComponent: any;
   model: any = {};
 
   constructor() {}
