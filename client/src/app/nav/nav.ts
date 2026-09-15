@@ -27,7 +27,7 @@ export class Nav implements OnInit {
   login() {
     this.accountService.login(this.model).subscribe({
       next: (response) => {
-        console.log(response);
+        console.log('response', response);
         // this.loggedIn = true;
       },
       error: (error) => {
