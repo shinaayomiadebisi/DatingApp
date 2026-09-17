@@ -17,7 +17,7 @@ export class Register implements OnInit {
   ngOnInit(): void {}
 
   register() {
-    console.log(this.model);
+    console.log(this.model, 'his.model');
   }
 
   cancel() {
