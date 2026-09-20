@@ -15,13 +15,15 @@ export class Home implements OnInit {
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getUsers();
+  }
 
   registerToggle() {
     this.registerMode = !this.registerMode;
   }
 
   getUsers() {
-    this.http.get('https://localhost:5000/api/users').subscribe((users) => (this.users = users));
+    this.http.get('http://localhost:5000/api/users').subscribe((users) => (this.users = users));
   }
 }
