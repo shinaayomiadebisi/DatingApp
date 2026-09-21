@@ -21,6 +21,6 @@ export class Register implements OnInit {
   }
 
   cancel() {
-    console.log('cancelled');
+    console.log('cancelled, cancelled');
   }
 }
