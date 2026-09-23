@@ -23,5 +23,6 @@ export class Register implements OnInit {
 
   cancel() {
     console.log('cancelled');
+    this.cancelRegister.emit(false);
   }
 }
