@@ -5,10 +5,12 @@ import { AsyncPipe, NgIf } from '@angular/common';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { User } from '../_models/user';
 import { Observable } from 'rxjs';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nav',
-  imports: [FormsModule, BsDropdownModule, AsyncPipe],
+  imports: [FormsModule, BsDropdownModule, AsyncPipe, RouterLink, RouterLinkActive],
   templateUrl: './nav.html',
   styleUrl: './nav.css',
 })
@@ -17,7 +19,11 @@ export class Nav implements OnInit {
   // loggedIn: boolean = false;
   // currentUser$!: Observable<User>;
 
-  constructor(public accountService: AccountService) {}
+  constructor(
+    public accountService: AccountService,
+    private router: Router,
+    private toastr: ToastrService,
+  ) {}
 
   ngOnInit(): void {
     // this.getCurrentUser();
@@ -29,9 +35,11 @@ export class Nav implements OnInit {
       next: (response) => {
         console.log(response);
         // this.loggedIn = true;
+        this.router.navigateByUrl('/members');
       },
       error: (error) => {
         console.error(error);
+        this.toastr.error(error.error);
       },
     });
   }
@@ -39,6 +47,7 @@ export class Nav implements OnInit {
   logout() {
     this.accountService.logout();
     // this.loggedIn = false;
+    this.router.navigateByUrl('/');
   }
 
   // getCurrentUser() {
