@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-nav',
   imports: [FormsModule, BsDropdownModule, AsyncPipe, RouterLink, RouterLinkActive],
   templateUrl: './nav.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './nav.css',
 })
 export class Nav implements OnInit {
