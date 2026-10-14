@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AccountService } from '../_services/account.service';
-import { AsyncPipe, NgIf } from '@angular/common';
+import { AsyncPipe, NgIf, TitleCasePipe } from '@angular/common';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { User } from '../_models/user';
 import { Observable } from 'rxjs';
@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nav',
-  imports: [FormsModule, BsDropdownModule, AsyncPipe, RouterLink, RouterLinkActive],
+  imports: [FormsModule, BsDropdownModule, AsyncPipe, RouterLink, RouterLinkActive, TitleCasePipe],
   templateUrl: './nav.html',
   changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './nav.css',
