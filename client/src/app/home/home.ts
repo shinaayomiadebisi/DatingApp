@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Register } from '../register/register';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,6 +7,7 @@ import { HttpClient } from '@angular/common/http';
   // standalone: true,
   imports: [Register],
   templateUrl: './home.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './home.css',
 })
 export class Home implements OnInit {
