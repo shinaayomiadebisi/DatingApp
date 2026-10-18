@@ -1,6 +1,13 @@
 import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit, PLATFORM_ID, signal } from '@angular/core';
+import {
+  Component,
+  inject,
+  OnInit,
+  PLATFORM_ID,
+  signal,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Nav } from './nav/nav';
 import { User } from './_models/user';
@@ -11,6 +18,7 @@ import { Home } from './home/home';
   selector: 'app-root',
   imports: [RouterOutlet, Nav, Home],
   templateUrl: './app.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.css',
 })
 export class App implements OnInit {
