@@ -55,7 +55,7 @@ export class TestErrors implements OnInit {
     });
   }
   get400ValidationError() {
-    this.http.get(this.baseUrl + 'buggy/not-found').subscribe({
+    this.http.post(this.baseUrl + 'account/register', {}).subscribe({
       next: (response) => {
         console.log(response);
       },
