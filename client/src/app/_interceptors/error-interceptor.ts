@@ -20,6 +20,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
                   modelStateErrors.push(error.error.errors[key]);
                 }
               }
+              throw modelStateErrors;
             }
             break;
 
