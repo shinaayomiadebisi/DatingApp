@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestErrors implements OnInit {
   baseUrl = 'http://localhost:5000/api/';
+  validationErrors: string[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -61,6 +62,7 @@ export class TestErrors implements OnInit {
       },
       error: (error) => {
         console.log(error);
+        this.validationErrors = error;
       },
     });
   }
