@@ -7,7 +7,7 @@ import {
   withEventReplay,
   withNoIncrementalHydration,
 } from '@angular/platform-browser';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withFetch } from '@angular/common/http';
 import { provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
@@ -19,5 +19,6 @@ export const appConfig: ApplicationConfig = {
     provideToastr({
       positionClass: 'toast-bottom-right',
     }),
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor },
   ],
 };
