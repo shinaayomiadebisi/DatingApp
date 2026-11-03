@@ -1,6 +1,6 @@
 import { HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { catchError, throwError } from 'rxjs';
 
@@ -25,8 +25,19 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
               toastr.error(error.statusText, error.status);
             }
             break;
-
+          case 401:
+            toastr.error(error.statusText, error.status);
+            break;
+          case 404:
+            router.navigateByUrl('/not-found');
+            break;
+          case 500:
+            const navigateExtras: NavigationExtras = { state: { error: error.error } };
+            router.navigateByUrl('/server-error', navigateExtras);
+            break;
           default:
+            toastr.error('Something unexpected went wrong!');
+            console.log(error);
             break;
         }
       }
