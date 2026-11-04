@@ -20,7 +20,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
                   modelStateErrors.push(error.error.errors[key]);
                 }
               }
-              throw modelStateErrors;
+              throw modelStateErrors.flat();
             } else {
               toastr.error(error.statusText, error.status);
             }
