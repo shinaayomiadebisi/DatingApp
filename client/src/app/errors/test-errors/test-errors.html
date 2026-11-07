@@ -10,7 +10,7 @@
   <div class="row mt-4">
     @if (validationErrors.length > 0) {
       <ul class="text-danger">
-        @for (error of validationErrors) {
+        @for (error of validationErrors; track error) {
           <li>{{ error }}</li>
         }
       </ul>
