@@ -38,10 +38,10 @@ export class Nav implements OnInit {
         // this.loggedIn = true;
         this.router.navigateByUrl('/members');
       },
-      error: (error) => {
-        console.error(error);
-        this.toastr.error(error.error);
-      },
+      // error: (error) => {
+      //   console.error(error);
+      //   this.toastr.error(error.error);
+      // },
     });
   }
 
