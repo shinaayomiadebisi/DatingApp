@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   imports: [],
@@ -6,4 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './server-error.css',
   templateUrl: './server-error.html',
 })
-export class ServerError {}
+export class ServerError implements OnInit {
+  error: any;
+
+  constructor(private router: Router) {
+    const navigation = this.router.getCurrentNavigation();
+    this.error = navigation?.extras?.state?.error;
+  }
+
+  ngOnInit(): void {}
+}
