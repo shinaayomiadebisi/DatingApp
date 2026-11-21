@@ -62,6 +62,16 @@ ng g m shared --flat
 
 ng g interceptor --skip-tests
 
+<!-- For Schema photos -->
+
+dotnet ef migrations add ExtendedUserEntity
+To undo this action, use 'ef migrations remove' or 'dotnet ef migrations remove --force'
+dotnet ef database update
+
+<!-- Json generator -->
+
+https://json-generator.com
+
 Tutorial Link: https://www.youtube.com/watch?v=3IQBMnijm6Y&list=PLaR3RrvBxlc21kp7BmrBqDQ7xSZjx3p_-
 
 https://github.com/trycatchlearn
