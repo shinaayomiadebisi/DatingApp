@@ -67,8 +67,9 @@ ng g interceptor --skip-tests
 dotnet ef migrations add ExtendedUserEntity
 To undo this action, use 'ef migrations remove' or 'dotnet ef migrations remove --force'
 dotnet ef database update
+dotnet ef database drop
 
-<!-- Json generator -->
+<!-- Json generator for seeding sample -->
 
 https://json-generator.com
 
