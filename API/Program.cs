@@ -43,6 +43,25 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Create the scope and run your database logic before starting the app
+using (var scope = app.Services.CreateScope())
+{
+    var scopeServices = scope.ServiceProvider;
+    try
+    {
+        var context = scopeServices.GetRequiredService<DataContext>();
+        await context.Database.MigrateAsync();
+        // Applies pending EF Core migrations
+        await Seed.SeedUsers(context);       // Optional: call your seed method here
+    } 
+    catch (Exception ex)
+    {
+        var logger = scopeServices.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred during database migration/seeding.");
+    }
+    
+}
+
 // var summaries = new[]
 // {
 //     "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -62,7 +81,7 @@ app.MapControllers();
 // })
 // .WithName("GetWeatherForecast");
 
-app.Run();
+await app.RunAsync();
 
 // record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 // {
